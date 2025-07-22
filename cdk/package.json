@@ -1,0 +1,27 @@
+{
+  "name": "cdk",
+  "version": "1.0.0",
+  "description": "CDK stack for Nova Sonic voice chat implementation",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk",
+    "deploy": "cdk deploy",
+    "diff": "cdk diff",
+    "synth": "cdk synth"
+  },
+  "keywords": [
+    "nova",
+    "sonic",
+    "aws",
+    "cdk",
+    "bedrock"
+  ],
+  "author": "",
+  "license": "ISC"
+}
