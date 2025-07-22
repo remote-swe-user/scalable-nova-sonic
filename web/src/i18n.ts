@@ -1,32 +1,52 @@
-import i18n from 'i18next'
-import { initReactI18next } from 'react-i18next'
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
 
-// Translation resources
 const resources = {
+  ja: {
+    translation: {
+      voiceChat: {
+        title: 'Nova Sonic 音声チャット',
+        default_system_prompt: 'あなたは役立つAIアシスタントです。ユーザーの質問に簡潔かつ正確に答えてください。',
+        start: '会話を開始',
+        close: '会話を終了',
+        im_listening: 'お話しください...',
+        experimental_warning_title: '実験的機能',
+        experimental_warning: 'この音声チャットは実験的な機能です。会話は録音されません。',
+      },
+      chat: {
+        show_system_prompt: 'システムプロンプトを表示',
+        system_prompt: 'システムプロンプト',
+        initialize: '初期化',
+      }
+    }
+  },
   en: {
     translation: {
-      'voiceChat.title': 'Voice Chat with Nova Sonic',
-      'voiceChat.start': 'Start Voice Chat',
-      'voiceChat.close': 'End Session',
-      'voiceChat.im_listening': "I'm listening...",
-      'voiceChat.experimental_warning_title': 'Experimental Feature',
-      'voiceChat.experimental_warning': 'This voice chat feature uses Amazon Nova Sonic via Bedrock. The feature may sometimes be unstable or have unexpected behavior.',
-      'voiceChat.default_system_prompt': 'You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe. Your answers should not include harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature. If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don\'t know the answer to a question, please don\'t share false information.',
-      'chat.system_prompt': 'System prompt',
-      'chat.initialize': 'Reset',
-      'chat.show_system_prompt': 'Show system prompt',
+      voiceChat: {
+        title: 'Nova Sonic Voice Chat',
+        default_system_prompt: 'You are a helpful AI assistant. Answer user questions concisely and accurately.',
+        start: 'Start conversation',
+        close: 'End conversation',
+        im_listening: 'I\'m listening...',
+        experimental_warning_title: 'Experimental Feature',
+        experimental_warning: 'This voice chat is an experimental feature. Conversations are not recorded.',
+      },
+      chat: {
+        show_system_prompt: 'Show system prompt',
+        system_prompt: 'System prompt',
+        initialize: 'Initialize',
+      }
     }
   }
-}
+};
 
-i18n
-  .use(initReactI18next)
-  .init({
-    resources,
-    lng: 'en',
-    interpolation: {
-      escapeValue: false
-    }
-  })
+i18n.use(initReactI18next).init({
+  resources,
+  lng: 'ja',
+  fallbackLng: 'en',
+  interpolation: {
+    escapeValue: false,
+  },
+});
 
-export default i18n
+export default i18n;

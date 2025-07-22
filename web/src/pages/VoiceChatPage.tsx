@@ -13,10 +13,10 @@ import ExpandableField from '../components/ExpandableField';
 import Button from '../components/Button';
 import InputChatContent from '../components/InputChatContent';
 import ScrollTopBottom from '../components/ScrollTopBottom';
-import Alert from '../components/Alert.tsx';
+import Alert from '../components/Alert';
 import Select from '../components/Select';
 import useFollow from '../hooks/useFollow';
-import BedrockIcon from '../assets/bedrock.svg?react';
+import { ReactComponent as BedrockIcon } from '../assets/bedrock.svg';
 import { toast } from 'sonner';
 import { MODELS } from '../hooks/useModel';
 

@@ -3,13 +3,13 @@ import { events, EventsChannel } from 'aws-amplify/data';
 import { AudioPlayer } from './AudioPlayer';
 import { AudioRecorder } from './AudioRecorder';
 import { v4 as uuid } from 'uuid';
-import useHttp from '../../hooks/useHttp';
+import useHttp from '../useHttp';
 import useChatHistory from './useChatHistory';
 import {
   SpeechToSpeechEventType,
   SpeechToSpeechEvent,
   Model,
-} from 'generative-ai-use-cases';
+} from '../../types';
 
 const NAMESPACE = import.meta.env.VITE_APP_SPEECH_TO_SPEECH_NAMESPACE!;
 const MIN_AUDIO_CHUNKS_PER_BATCH = 10;
