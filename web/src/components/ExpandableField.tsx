@@ -16,17 +16,19 @@ const ExpandableField: React.FC<ExpandableFieldProps> = ({
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
 
   return (
-    <div className={`mb-4 ${className}`}>
-      <div
-        className="flex items-center cursor-pointer p-2 border-b"
+    <div className={`border rounded shadow-sm ${className}`}>
+      <button
+        className="w-full flex items-center justify-between p-4 text-left focus:outline-none"
         onClick={() => setIsExpanded(!isExpanded)}
       >
-        <div className="flex-1 font-semibold">{label}</div>
-        <div className="text-lg">
-          {isExpanded ? '▼' : '▶'}
-        </div>
+        <span className="font-medium">{label}</span>
+        <span className="transform transition-transform">
+          {isExpanded ? '▼' : '▲'}
+        </span>
+      </button>
+      <div className={`px-4 pb-4 ${isExpanded ? 'block' : 'hidden'}`}>
+        {children}
       </div>
-      {isExpanded && <div className="p-2">{children}</div>}
     </div>
   );
 };

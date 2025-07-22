@@ -3,9 +3,16 @@ import React from 'react';
 interface AlertProps {
   title: string;
   children: React.ReactNode;
-  severity?: 'info' | 'success' | 'warning' | 'error';
+  severity?: 'info' | 'warning' | 'error' | 'success';
   className?: string;
 }
+
+const severityClasses = {
+  info: 'bg-blue-100 border-blue-400 text-blue-800',
+  warning: 'bg-yellow-100 border-yellow-400 text-yellow-800',
+  error: 'bg-red-100 border-red-400 text-red-800',
+  success: 'bg-green-100 border-green-400 text-green-800',
+};
 
 const Alert: React.FC<AlertProps> = ({
   title,
@@ -13,24 +20,12 @@ const Alert: React.FC<AlertProps> = ({
   severity = 'info',
   className = '',
 }) => {
-  const getColorsByType = () => {
-    switch (severity) {
-      case 'success':
-        return 'bg-green-50 text-green-800 border-green-200';
-      case 'warning':
-        return 'bg-yellow-50 text-yellow-800 border-yellow-200';
-      case 'error':
-        return 'bg-red-50 text-red-800 border-red-200';
-      case 'info':
-      default:
-        return 'bg-blue-50 text-blue-800 border-blue-200';
-    }
-  };
+  const severityClass = severityClasses[severity];
 
   return (
-    <div className={`border rounded-md p-4 ${getColorsByType()} ${className}`}>
-      <h3 className="font-semibold mb-2">{title}</h3>
-      <div>{children}</div>
+    <div className={`border-l-4 p-4 my-4 ${severityClass} ${className}`}>
+      <div className="font-bold">{title}</div>
+      <div className="text-sm">{children}</div>
     </div>
   );
 };

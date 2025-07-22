@@ -1,34 +1,33 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   onClick?: () => void;
+  outlined?: boolean;
   className?: string;
   disabled?: boolean;
-  outlined?: boolean;
-  type?: 'button' | 'submit' | 'reset';
 }
 
 const Button: React.FC<ButtonProps> = ({
   children,
   onClick,
+  outlined = false,
   className = '',
   disabled = false,
-  outlined = false,
-  type = 'button'
+  ...rest
 }) => {
-  const baseClasses = 'px-4 py-2 rounded-md font-medium transition duration-200 flex items-center justify-center';
+  const baseClasses = 'flex items-center justify-center px-4 py-2 rounded focus:outline-none transition-colors';
   const outlinedClasses = outlined
-    ? 'border border-blue-500 text-blue-500 hover:bg-blue-50'
-    : 'bg-blue-500 text-white hover:bg-blue-600';
+    ? 'border border-gray-700 text-gray-700 hover:bg-gray-100'
+    : 'bg-blue-600 text-white hover:bg-blue-700';
   const disabledClasses = disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer';
 
   return (
     <button
-      type={type}
+      className={`${baseClasses} ${outlinedClasses} ${disabledClasses} ${className}`}
       onClick={onClick}
       disabled={disabled}
-      className={`${baseClasses} ${outlinedClasses} ${disabledClasses} ${className}`}
+      {...rest}
     >
       {children}
     </button>

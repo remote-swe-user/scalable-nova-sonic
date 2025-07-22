@@ -8,21 +8,21 @@ interface ChatMessageProps {
   loading?: boolean;
 }
 
-const ChatMessage: React.FC<ChatMessageProps> = ({ 
-  chatContent, 
-  loading = false 
+const ChatMessage: React.FC<ChatMessageProps> = ({
+  chatContent,
+  hideFeedback = false,
+  hideSaveSystemContext = false,
+  loading = false
 }) => {
-  const { role, content } = chatContent;
-  
   return (
-    <div className={`p-4 ${role === 'assistant' ? 'bg-gray-100' : 'bg-white'}`}>
-      <div className="font-bold mb-2">
-        {role === 'user' ? 'あなた' : role === 'assistant' ? 'アシスタント' : 'システム'}
+    <div className="p-4">
+      <div className="font-bold">
+        {chatContent.role === 'system' ? 'System' : chatContent.role === 'user' ? 'You' : 'Assistant'}
       </div>
       <div className="whitespace-pre-wrap">
-        {content}
+        {chatContent.content}
         {loading && (
-          <span className="inline-block animate-pulse">▋</span>
+          <span className="inline-block w-1 h-4 ml-1 bg-gray-500 animate-pulse"></span>
         )}
       </div>
     </div>
