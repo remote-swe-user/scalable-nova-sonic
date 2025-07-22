@@ -1,0 +1,22 @@
+{
+  "name": "nova-sonic-web",
+  "version": "1.0.0",
+  "description": "Web frontend for Nova Sonic voice chat implementation",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "nova",
+    "sonic",
+    "aws",
+    "bedrock",
+    "voice",
+    "chat"
+  ],
+  "author": "",
+  "license": "ISC"
+}
